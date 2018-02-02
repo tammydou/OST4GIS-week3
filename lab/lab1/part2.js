@@ -53,8 +53,8 @@ Instructions: Write a function that returns true if a number is odd
 ===================== */
 
 var isOdd = function(n) {
-  if (isEven(n)) {return false;}
-  else {return true;}
+  if (not(isEven(n))) {return true;}
+  else {return false;}
 };
 
 console.log('isOdd success:', isOdd(4) === false);
@@ -65,14 +65,14 @@ Instructions: Write a function that takes a list of numbers and returns a list w
 
 var filterOutLessThan10 = function(array) {
   for (var i=0;i<array.length;i++){
-    if (array[i]<10){
-      n.splice(i,1);
+    if (array[i]<=10){
+      array.splice(i,1);
     }
   }
   return array;
 };
-
-console.log('filterOutLessThan10 success:', _.isEqual(filterOutLessThan10([4, 11])) === [11]);
+console.log(filterOutLessThan10([4, 11]));
+console.log('filterOutLessThan10 success:', _.isEqual(filterOutLessThan10([4, 11]),[11]));
 
 /* =====================
 Stretch goal
@@ -91,4 +91,4 @@ var filter = function(array, func) {
   return arrayFiltered;
 };
 
-console.log('filter success:', filter([4, 11], isOdd) === [11]);
+console.log('filter success:', _.isEqual(filter([4, 11], isOdd),[11]));
